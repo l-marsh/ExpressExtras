@@ -18,11 +18,7 @@
 #' @export
 
 
-# library(org.Mm.eg.db)
-# library(EnsDb.Mmusculus.v75)
-# library(org.Hs.eg.db)
-# library(EnsDb.Hsapiens.v75)
-# library(dplyr)
+
 
 GeneAnnotate <- function(ids,organism) {
   if(organism=="Mm"){
