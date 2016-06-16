@@ -1,0 +1,9 @@
+Package: ExpressExtras
+Type: Package
+Title: Functions for the RNA-seq
+Version: 0.1.0
+Author: Michael Morley
+Maintainer: Who to complain to <yourfault@somewhere.net>
+Description: More about what it does (maybe more than one line)
+License:
+LazyData: TRUE
