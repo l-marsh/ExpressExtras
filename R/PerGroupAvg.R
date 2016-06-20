@@ -1,7 +1,7 @@
 #' Computes per group average expression
 #' @param eset : eset
 #' @return Dataframe with per group average expression
-#' @import (tidyr)
+#' @import tidyr
 #' @export
 #' @examples
 #' PerGroupAvg()
