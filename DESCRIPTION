@@ -8,8 +8,7 @@ Description: More about what it does (maybe more than one line)
 License: CCO
 LazyData: TRUE
 RoxygenNote: 5.0.1
-Imports:
-dplyr,
+Imports: dplyr,
 org.Mm.eg.db,
 EnsDb.Mmusculus.v75,
 org.Hs.eg.db,
