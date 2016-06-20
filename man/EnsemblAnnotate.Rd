@@ -9,6 +9,9 @@ EnsemblAnnotate(eset, transcriptdb, ensemblonly = T)
 \arguments{
 \item{eset}{An ExpressionSet}
 }
+\value{
+eSet with Featuredata upadted
+}
 \description{
 Annotate a ExpressioSet
 }
