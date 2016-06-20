@@ -1,8 +1,8 @@
 #'Annotate a ExpressioSet
 #' @param eset An ExpressionSet
+#' @return eSet with Featuredata upadted
 #'
-#'
-#'
+#' @export
 EnsemblAnnotate <- function(eset, transcriptdb,ensemblonly=T){
   gns <- AnnotationDbi::select(transcriptdb, keys=featureNames(eset), columns=c("SYMBOL","GENENAME",'ENTREZID','ENSEMBL'), keytype="PROBEID")
   gns_cts <- count(gns,PROBEID)
