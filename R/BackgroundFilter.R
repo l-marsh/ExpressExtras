@@ -5,7 +5,6 @@
 #' @export
 
 BackgrdFilter <- function(eset,method='mean'){
-
   pdinfo <- annotation(eset)
   con <- db(get(pdinfo))
   antigm <- dbGetQuery(con, "select meta_fsetid from core_mps inner join
