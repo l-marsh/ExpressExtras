@@ -3,8 +3,16 @@
 #' @param method can be "mean" which will take the mean expression value of all the controls per array and use the median as the cutoff
 #' Quantile will use the .75 quatile instead of the mean
 #' @export
+<<<<<<< HEAD
 #' @import genefilter
 
+=======
+<<<<<<< HEAD
+#' @import genefilter
+=======
+#' @imnport genefilter
+>>>>>>> 4d67ba44dfbf7d56149c8a2e862446f405a792a4
+>>>>>>> 6d551a9a49c26627682d0fe10a405d6c40442b49
 
 BackgrdFilter <- function(eset,method='mean'){
 
