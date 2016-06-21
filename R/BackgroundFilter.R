@@ -2,10 +2,11 @@
 #' @param eset An ExpressionSet
 #' @param method can be "mean" which will take the mean expression value of all the controls per array and use the median as the cutoff
 #' Quantile will use the .75 quatile instead of the mean
+#' @import genefilter
 #' @export
+#'
 
 BackgrdFilter <- function(eset,method='mean'){
-
   pdinfo <- annotation(eset)
   con <- db(get(pdinfo))
   antigm <- dbGetQuery(con, "select meta_fsetid from core_mps inner join
