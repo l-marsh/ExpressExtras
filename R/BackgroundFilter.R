@@ -5,6 +5,10 @@
 #' @import genefilter
 #' @export
 #'
+<<<<<<< HEAD
+=======
+
+>>>>>>> 271abe1d69d0801d51e31617bfe5518d1f10fdcd
 BackgrdFilter <- function(eset,method='mean'){
   pdinfo <- annotation(eset)
   con <- db(get(pdinfo))
