@@ -18,9 +18,7 @@
 #' @export
 
 
-
-
-GeneAnnotate <- function(ids,organism) {
+GeneAnnotate <- function(ids,organism="Mm") {
   if(organism=="Mm"){
   edb = EnsDb.Mmusculus.v75
   org = org.Mm.eg.db
@@ -28,21 +26,17 @@ GeneAnnotate <- function(ids,organism) {
   else if(organism=="Hs"){
     edb = EnsDb.Hsapiens.v75
     org = org.Hs.eg.db
+  }else{
+    stop("Wrong organism")
   }
 
   pos <- ensembldb::genes(edb,columns=c("gene_id","gene_biotype","seq_name"),
                           return.type="data.frame")
   res <- AnnotationDbi::select(org, keys=ids, columns=c("ENSEMBL","SYMBOL",'ENTREZID','GENENAME'), keytype="ENSEMBL")
-
-  res <-subset(res,!duplicated(res$ENSEMBL))
-  res <- inner_join(res,pos,by=c('ENSEMBL'='gene_id'))
-  genes<- merge(limma,res, by.x=0, by.y="ENSEMBL")
-  rownames(genes)=make.names(genes[,1], unique=TRUE)
-  #genes=data.frame(ENSEMBL=genes[,1],genes[,ncol(genes)-4:ncol(genes)],genes[,2:7])
+  genes <- inner_join(res,pos,by=c('ENSEMBL'='gene_id'))
+  genes <-subset(genes,!duplicated(res$ENSEMBL))
+  rownames(genes)=make.names(genes$ENSEMBL, unique=TRUE)
   return(genes)
 }
-
-
-
 
 
