@@ -5,10 +5,6 @@
 #' @import genefilter
 #' @export
 #'
-<<<<<<< HEAD
-=======
-
->>>>>>> 271abe1d69d0801d51e31617bfe5518d1f10fdcd
 BackgrdFilter <- function(eset,method='mean'){
   pdinfo <- annotation(eset)
   con <- db(get(pdinfo))
@@ -23,8 +19,6 @@ featureSet.type='7';")
 
   eset@experimentData@normControls <-list('method'=method,'ExpressCutoffValue'=bkgrdval)
 
-
-  # bkgrdval <- max( apply(exprs(eset)[as.character(antigm[,1]),], 2, quantile,prob=.8))
   ind <- genefilter(eset, filterfun(pOverA(.8, bkgrdval)))
   return(eset[ind,])
 
