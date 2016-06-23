@@ -35,7 +35,7 @@ GeneAnnotate <- function(ids,organism="Mm") {
   res <- AnnotationDbi::select(org, keys=ids, columns=c("ENSEMBL","SYMBOL",'ENTREZID','GENENAME'), keytype="ENSEMBL")
   genes <- inner_join(res,pos,by=c('ENSEMBL'='gene_id'))
   genes <-subset(genes,!duplicated(res$ENSEMBL))
-  rownames(genes)=make.names(genes$ENSEMBL, unique=TRUE)
+  rownames(genes)=genes$ENSEMBL
   return(genes)
 }
 
