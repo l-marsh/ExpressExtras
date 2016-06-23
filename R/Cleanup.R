@@ -8,7 +8,8 @@
 
 
 Cleanup <-function(tt){
-  tt %>% mutate(fc = ifelse(logFC<0, -1*2^abs(logFC),2^logFC)) %>%
-    select(-B,-logFC) %>%
-    return(.)
+  res <- tt %>% mutate(fc = ifelse(logFC<0, -1*2^abs(logFC),2^logFC)) %>%
+    select(-B)
+    rownames(res) <- rownames(tt)
+    return(res)
 }
