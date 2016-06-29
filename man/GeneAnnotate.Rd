@@ -5,7 +5,7 @@
 \title{Return a data frame of gene annotations
 Takes a dataframe having output from limma, cleans up to remove unwanted columns and annotates it}
 \usage{
-GeneAnnotate(ids, organism)
+GeneAnnotate(ids, organism = "Mm")
 }
 \arguments{
 \item{ids}{: List of ENSEMBL IDs}
