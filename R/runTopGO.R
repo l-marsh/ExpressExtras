@@ -14,8 +14,6 @@ runTopGO <- function(tt,pcutoff=.1){
 
   ##
   GetGeneList <- function(input){
-    #input=(abs(tt$fc) > 2 & tt$adj.P.Val < 0.05)
-    #return(input)
     input < pcutoff
   }
 
