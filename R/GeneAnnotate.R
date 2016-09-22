@@ -18,23 +18,21 @@
 #' @export
 
 
-GeneAnnotate <- function(ids,organism="Mm") {
+GeneAnnotate <- function(ids,organism) {
   if(organism=="Mm"){
-  edb = EnsDb.Mmusculus.v75
-  org = org.Mm.eg.db
+    load('~/dsdata/NGSshare/mm9_data/Rdata/Mus_musculus.NCBIM37.67.RData')
   }
   else if(organism=="Hs"){
-    edb = EnsDb.Hsapiens.v75
-    org = org.Hs.eg.db
+    load('~/dsdata/NGSshare/hg19_data/RData/gencode.v19.annotation.RData')
   }else{
     stop("Wrong organism")
   }
 
-  pos <- ensembldb::genes(edb,columns=c("gene_id","gene_biotype","seq_name"),
-                          return.type="data.frame")
-  res <- AnnotationDbi::select(org, keys=ids, columns=c("ENSEMBL","SYMBOL",'ENTREZID','GENENAME'), keytype="ENSEMBL")
-  res <- subset(res,!duplicated(res$ENSEMBL))
-  genes <- inner_join(res,pos,by=c('ENSEMBL'='gene_id'))
+  genes <- geneannotation %>% filter (gene_id %in% ids)
+
+  #res <- AnnotationDbi::select(org, keys=ids, columns=c("ENSEMBL","SYMBOL",'ENTREZID','GENENAME'), keytype="ENSEMBL")
+  #res <- subset(res,!duplicated(res$ENSEMBL))
+  #genes <- inner_join(res,pos,by=c('ENSEMBL'='gene_id'))
   rownames(genes)=genes$ENSEMBL
   return(genes)
 }
