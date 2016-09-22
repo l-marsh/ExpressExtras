@@ -29,11 +29,11 @@ GeneAnnotate <- function(ids,organism) {
   }
 
   genes <- geneannotation %>% filter (gene_id %in% ids)
-
+  genes <-as.data.frame(genes)
   #res <- AnnotationDbi::select(org, keys=ids, columns=c("ENSEMBL","SYMBOL",'ENTREZID','GENENAME'), keytype="ENSEMBL")
   #res <- subset(res,!duplicated(res$ENSEMBL))
   #genes <- inner_join(res,pos,by=c('ENSEMBL'='gene_id'))
-  rownames(genes)=genes$id
+  rownames(genes)=genes$gene_id
   return(genes)
 }
 
