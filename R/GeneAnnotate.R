@@ -28,12 +28,14 @@ GeneAnnotate <- function(ids,organism) {
     stop("Wrong organism")
   }
 
-  genes <- geneannotation %>% filter (gene_id %in% ids)
+genes <- geneannotation %>% filter (gene_id %in% ids) %>%
+  dplyr::rename(biotype=gene_type, SYMBOL=gene_name, ENSEMBL=gene_id) %>%
+  mutate(geneloc=paste(chr,':',start,'-',end,sep='')) %>%
+  dplyr::select(SYMBOL,ENSEMBL,ENTREZID,biotype,geneloc) %>% arrange(ENSEMBL)
+
+
   genes <-as.data.frame(genes)
-  #res <- AnnotationDbi::select(org, keys=ids, columns=c("ENSEMBL","SYMBOL",'ENTREZID','GENENAME'), keytype="ENSEMBL")
-  #res <- subset(res,!duplicated(res$ENSEMBL))
-  #genes <- inner_join(res,pos,by=c('ENSEMBL'='gene_id'))
-  rownames(genes)=genes$gene_id
+  rownames(genes)=genes$ENSEMBL
   return(genes)
 }
 
