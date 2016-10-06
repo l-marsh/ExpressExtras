@@ -29,12 +29,13 @@ GeneAnnotate <- function(ids,organism) {
   }
 
 genes <- geneannotation %>% filter (gene_id %in% ids) %>%
-  dplyr::rename(biotype=gene_type, SYMBOL=gene_name, ENSEMBL=gene_id) %>%
-  mutate(geneloc=paste(chr,':',start,'-',end,sep='')) %>%
-  dplyr::select(SYMBOL,ENSEMBL,ENTREZID,biotype,geneloc) %>% arrange(ENSEMBL)
+  dplyr::rename(biotype=gene_biotype, SYMBOL=gene_name, ENSEMBL=gene_id) %>%
+  mutate(geneloc=paste(chr,':',start,'-',end,sep=''),Length=abs(end-start)) %>%
+  dplyr::select(SYMBOL,ENSEMBL,ENTREZID,biotype,geneloc,Length) %>% arrange(ENSEMBL)
 
 
   genes <-as.data.frame(genes)
+  genes <- unique(genes)
   rownames(genes)=genes$ENSEMBL
   return(genes)
 }
