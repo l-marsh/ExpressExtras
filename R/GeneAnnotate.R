@@ -30,7 +30,7 @@ GeneAnnotate <- function(ids,organism) {
 
 genes <- geneannotation %>% filter (gene_id %in% ids) %>%
   dplyr::rename(biotype=gene_type, SYMBOL=gene_name, ENSEMBL=gene_id) %>%
-  mutate(geneloc=paste(chr,':',start,'-',end,sep='')) %>%
+  mutate(geneloc=paste(chr,':',start,'-',end,sep='', Length=end-start)) %>%
   dplyr::select(SYMBOL,ENSEMBL,ENTREZID,biotype,geneloc) %>% arrange(ENSEMBL)
 
 
