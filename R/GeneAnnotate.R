@@ -35,7 +35,6 @@ genes <- geneannotation %>% filter (gene_id %in% ids) %>%
 
 
   genes <-as.data.frame(genes)
-  genes <- unique(genes)
   rownames(genes)=genes$ENSEMBL
   return(genes)
 }
