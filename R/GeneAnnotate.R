@@ -18,7 +18,7 @@
 #' @export
 
 
-GeneAnnotate <- function(ids,organism) {
+GeneAnnotate <- function(ids,organism="Mm") {
   if(organism=="Mm"){
     load('~/dsdata/NGSshare/mm9_data/Rdata/Mus_musculus.NCBIM37.67.RData')
   }
@@ -28,11 +28,15 @@ GeneAnnotate <- function(ids,organism) {
     stop("Wrong organism")
   }
 
-genes <- geneannotation %>% filter (gene_id %in% ids) %>%
-  dplyr::rename(biotype=gene_biotype, SYMBOL=gene_name, ENSEMBL=gene_id) %>%
-  mutate(geneloc=paste(chr,':',start,'-',end,sep=''),Length=abs(end-start)) %>%
-  dplyr::select(SYMBOL,ENSEMBL,ENTREZID,biotype,geneloc,Length) %>% arrange(ENSEMBL)
+  # genes <- geneannotation %>% filter (gene_id %in% ids) %>%
+  #   dplyr::rename(biotype=gene_biotype, SYMBOL=gene_name, ENSEMBL=gene_id) %>%
+  #   mutate(geneloc=paste(chr,':',start,'-',end,sep=''),Length=abs(end-start)) %>%
+  #   dplyr::select(SYMBOL,ENSEMBL,ENTREZID,biotype,geneloc,Length) %>% arrange(ENSEMBL)
 
+  genes <- geneannotation %>% filter (gene_id %in% ids) %>%
+    dplyr::rename(biotype=gene_biotype, SYMBOL=gene_name, ENSEMBL=gene_id) %>%
+    mutate(geneloc=paste(chr,':',start,'-',end,sep='')) %>%
+    dplyr::select(SYMBOL,ENSEMBL,ENTREZID,biotype,geneloc) %>% arrange(ENSEMBL)
 
   genes <-as.data.frame(genes)
   rownames(genes)=genes$ENSEMBL
