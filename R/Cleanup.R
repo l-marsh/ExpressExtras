@@ -8,7 +8,7 @@
 
 Cleanup <-function(tt){
   res <- tt %>% mutate(fc = ifelse(logFC<0, -1*2^abs(logFC),2^logFC)) %>%
-    select(ENSEMBL,SYMBOL,ENTREZID,biotype,geneloc,logFC,fc,P.Value,adj.P.Val)
+    select(ENSEMBL,SYMBOL,ENTREZID,biotype,geneloc,logFC,fc,P.Value,adj.P.Val,t)
     rownames(res) <- rownames(tt)
     return(res)
 }
