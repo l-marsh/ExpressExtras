@@ -14,7 +14,7 @@
 #' @param ids : List of ENSEMBL IDs
 #' @param organism : Mm for Mus musculus (mouse) and Hs for Homo sapiens (humans)
 #' @return Dataframe with limma data and the annotation
-#' @import org.Mm.eg.db EnsDb.Mmusculus.v75 org.Hs.eg.db EnsDb.Hsapiens.v75 dplyr annoTools
+#' @import org.Mm.eg.db EnsDb.Mmusculus.v75 org.Hs.eg.db EnsDb.Hsapiens.v75 dplyr 
 #' @export
 
 
