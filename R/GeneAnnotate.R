@@ -14,14 +14,14 @@
 #' @param ids : List of ENSEMBL IDs
 #' @param organism : Mm for Mus musculus (mouse) and Hs for Homo sapiens (humans)
 #' @return Dataframe with limma data and the annotation
-#' @import org.Mm.eg.db EnsDb.Mmusculus.v75 org.Hs.eg.db EnsDb.Hsapiens.v75 dplyr 
+#' @import org.Mm.eg.db EnsDb.Mmusculus.v75 org.Hs.eg.db EnsDb.Hsapiens.v75 dplyr annoTools
 #' @export
 
 
 GeneAnnotate <- function(ids,organism="Mm") {
   if(organism=="Mm"){
     #load('~/dsdata/NGSshare/mm9_data/Rdata/Mus_musculus.NCBIM37.67.RData')
-    geneannotation='Mus_musculus.NCBIM37.67.RData'
+    geneannotation=Mus_musculus.NCBIM37.67.RData$geneannotation
   }
   else if(organism=="Hs"){
     #load('~/dsdata/NGSshare/hg19_data/RData/gencode.v19.annotation.RData')
