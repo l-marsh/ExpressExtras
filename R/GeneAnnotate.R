@@ -21,10 +21,12 @@
 GeneAnnotate <- function(ids,organism="Mm") {
   if(organism=="Mm"){
     #load('~/dsdata/NGSshare/mm9_data/Rdata/Mus_musculus.NCBIM37.67.RData')
+    load('Mus_musculus.NCBIM37.67.RData')
     geneannotation=Mus_musculus.NCBIM37.67
   }
   else if(organism=="Hs"){
     #load('~/dsdata/NGSshare/hg19_data/RData/gencode.v19.annotation.RData')
+    load('gencode.v19.annotation.RData')
     geneannotation=gencode.v19.annotation
   }else{
     stop("Wrong organism")
