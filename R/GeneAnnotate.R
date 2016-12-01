@@ -12,19 +12,25 @@
 #' Return a data frame of gene annotations
 #' Takes a dataframe having output from limma, cleans up to remove unwanted columns and annotates it
 #' @param ids : List of ENSEMBL IDs
-#' @param organism : Mm for Mus musculus (mouse) and Hs for Homo sapiens (humans)
+#' @param organism : mouse for Mus musculus (mouse) and human for Homo sapiens (humans)
 #' @return Dataframe with limma data and the annotation
 #' @import org.Mm.eg.db EnsDb.Mmusculus.v75 org.Hs.eg.db EnsDb.Hsapiens.v75 dplyr
 #' @export
 
 
-GeneAnnotate <- function(ids,organism="Mm") {
-  if(organism=="Mm"){
+
+
+GeneAnnotate <- function(ids,organism) {
+  if (is.na(organism)) {
+    stop(paste("Please provide an organism human or mouse\n"), call. = FALSE)
+  }
+
+  if(organism=="mouse"){
     #load('~/dsdata/NGSshare/mm9_data/Rdata/Mus_musculus.NCBIM37.67.RData')
     data('Mus_musculus.NCBIM37.67')
     geneannotation=Mus_musculus.NCBIM37.67
   }
-  else if(organism=="Hs"){
+  else if(organism=="human"){
     #load('~/dsdata/NGSshare/hg19_data/RData/gencode.v19.annotation.RData')
     data('gencode.v19.annotation')
     geneannotation=gencode.v19.annotation
