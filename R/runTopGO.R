@@ -1,7 +1,7 @@
 #' Return a data frame of gene annotations
 #' Takes a dataframe having output from limma, cleans up to remove unwanted columns and annotates it
 #' @param ids : List of ENSEMBL IDs
-#' @param organism : mouse for Mus musculus (mouse) and human for Homo sapiens (humans)
+#' @param organism : mouse for Mus musculus (mouse) Rat for Rattus norvegicus (Rat) and human for Homo sapiens (humans)
 #' @return Dataframe with limma data and the annotation
 #' @import topGO
 #' @export
@@ -17,6 +17,9 @@ runTopGO <- function(tt,organism,pcutoff=.1){
   }
   else if(organism=="human"){
     geneannotation="org.Hs.eg.db"
+  }
+  else if(organism=="Rat"){
+    geneannotation="org.Rn.eg.db"
   }else{
     stop("Wrong organism")
   }
