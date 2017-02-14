@@ -38,7 +38,7 @@ GeneAnnotate <- function(ids,organism) {
   else if(organism=="Rat"){
     #load('~/dsdata/NGSshare/hg19_data/RData/gencode.v19.annotation.RData')
     data('Rattus_norvegicus.Rnor_6.0.87')
-    geneannotation=Rattus_norvegicus.Rnor_6.0.87.RData
+    geneannotation=Rattus_norvegicus.Rnor_6.0.87
   }else{
     stop("Wrong organism")
   }
