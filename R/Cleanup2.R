@@ -7,7 +7,7 @@
 #' Cleanup2()
 
 Cleanup2 <-function(tt){
-  data('ptntype.RData')
+  data('ptntype')
   res <- tt %>% mutate(fc = ifelse(logFC<0, -1*2^abs(logFC),2^logFC)) %>%
     select(ENSEMBL,SYMBOL,ENTREZID,biotype,geneloc,logFC,fc,P.Value,adj.P.Val,t)
   res=left_join(res,ptntype,by=c("ENSEMBL"="ENSEMBL")) %>% select(-gene) %>% select(ENSEMBL:geneloc,protein_type,logFC:t)
