@@ -4,7 +4,7 @@
 #' @return Dataframe with limma output
 #' @export
 #' @examples
-#' Cleanup()
+#' Cleanup2()
 
 Cleanup2 <-function(tt){
   data('ptntype.RData')
