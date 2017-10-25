@@ -12,4 +12,3 @@ GetMainProbes(input)
 \description{
 Annotate a ExpressioSet lifted from Affycoretools
 }
-

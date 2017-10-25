@@ -18,4 +18,3 @@ Computes per group average expression
 \examples{
 PerGroupAvg()
 }
-

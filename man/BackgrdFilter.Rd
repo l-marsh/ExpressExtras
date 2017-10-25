@@ -15,4 +15,3 @@ Quantile will use the .75 quatile instead of the mean}
 \description{
 Filter an ExpressionSet for Genes above background Vale
 }
-

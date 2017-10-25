@@ -15,4 +15,3 @@ eSet with Featuredata upadted
 \description{
 Annotate a ExpressioSet
 }
-

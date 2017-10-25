@@ -23,4 +23,3 @@ Reads the excelsheet containing sample information, performs sanity checks and g
 checkpData(file="/home/user/file.csv",type="csv")
 checkpData(file=dataframe,type="df")
 }
-

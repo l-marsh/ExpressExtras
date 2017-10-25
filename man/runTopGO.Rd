@@ -5,12 +5,12 @@
 \title{Return a data frame of gene annotations
 Takes a dataframe having output from limma, cleans up to remove unwanted columns and annotates it}
 \usage{
-runTopGO(tt, pcutoff = 0.1)
+runTopGO(tt, organism, pcutoff = 0.1)
 }
 \arguments{
-\item{ids}{: List of ENSEMBL IDs}
+\item{organism}{: mouse for Mus musculus (mouse) Rat for Rattus norvegicus (Rat) and human for Homo sapiens (humans)}
 
-\item{organism}{: Mm for Mus musculus (mouse) and Hs for Homo sapiens (humans)}
+\item{ids}{: List of ENSEMBL IDs}
 }
 \value{
 Dataframe with limma data and the annotation
@@ -19,4 +19,3 @@ Dataframe with limma data and the annotation
 Return a data frame of gene annotations
 Takes a dataframe having output from limma, cleans up to remove unwanted columns and annotates it
 }
-
