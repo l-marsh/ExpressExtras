@@ -6,7 +6,7 @@
 #' @examples
 #' Cleanup()
 
-Cleanup <-function(tt){
+Cleanup2 <-function(tt){
   data('ptntype.RData')
   res <- tt %>% mutate(fc = ifelse(logFC<0, -1*2^abs(logFC),2^logFC)) %>%
     select(ENSEMBL,SYMBOL,ENTREZID,biotype,geneloc,logFC,fc,P.Value,adj.P.Val,t)
